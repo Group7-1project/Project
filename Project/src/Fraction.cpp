@@ -1,15 +1,20 @@
 /*
- * Faction.cpp
+ * Fraction.cpp
  *
  *  Created on: Apr 8, 2014
  *      Author: Daniel
  */
 
-#include <exception>
+
 #include "Fraction.h"
 using namespace std;
 
-void read(int x, int y, char c){
+Fraction::Fraction(int n, int d){
+	numerator = n;
+	denominator = d;
+}
+
+/*void read(int x, int y, char c){
 
 try{
 
@@ -33,7 +38,7 @@ try{
 
 catch(exception& e){
 	cout<<e.what()<<endl;
-}
+}*/
 
 
 
