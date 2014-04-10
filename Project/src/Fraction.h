@@ -11,11 +11,10 @@
 class Fraction{
 public:
 	//constructor
-	Fraction();
+	Fraction(int n, int d);
 	~Fraction();
 
 	//methods
-	void read(int x, int y, char c);
 	int add;
 	int subtract;
 	int multiply;
