@@ -11,12 +11,10 @@
 
 using namespace std;
 
-Number Exponential::simplify(base, power)
+Number Exponential::simplify(int base, int power)
 {
 
-//try
-//{
-
+	//General cases
 
 	if(base == 0 && power > 0)
 	{
@@ -25,7 +23,8 @@ Number Exponential::simplify(base, power)
 
 	else if(base == 0 && power <= 0)
 	{
-		cout << "Not a valid operation." << endl;
+		cout << "Not a valid operation." << endl; //Need to add exception handling
+		return 0;
 	}
 
 	else if(base != 0 && power == 0)
@@ -36,6 +35,7 @@ Number Exponential::simplify(base, power)
 	else if(base != 0 && power > 0)
 	{
 		evaluate(base, power);
+		return ans;
 	}
 
 	else if(base != 0 && power < 0)
@@ -43,20 +43,48 @@ Number Exponential::simplify(base, power)
 		return (1/(evaluate(base, power)));
 	}
 
-/*	throw invalid_argument("Invalid entry");
-}
-catch(exception &e)
-*/
-
+	return 0;
 }
 
-double Exponential::evaluate(base, power)
+Number Exponential::simplify(int base, Fraction power)
+{
+	if(base == 0 && power > 0)
+		{
+			return 0;
+		}
+
+	else if(base == 0 && power <= 0)
+		{
+			cout << "Not a valid operation." << endl; //Need to add exception handling
+		}
+
+	else if(base != 0 && )
+	{
+
+	}
+
+	return 0;
+}
+
+
+//Evaluating methods
+
+Number Exponential::evaluate(int base, int power)
 {
 	if(power == 1)
+	{
 		return base;
+	}
 
 	else
+	{
 		ans = (base * evaluate(base, power-1));
 
-	return ans;
+		return ans;
+	}
+}
+
+Number Exponential::evaluate2(int base, Fraction power)
+{
+	if(base == 0 &&)
 }
