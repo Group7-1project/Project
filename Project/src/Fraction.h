@@ -15,13 +15,11 @@ public:
 	~Fraction();
 
 	//methods
-	int getNum();
-	int getDem()
-	Fraction add(Fraction F1, Fraction F2);
-	Fraction subtract(Fraction F1, Fraction F2);
-	Fraction multiply(Fraction F1, Fraction F2);
-	Fraction divide(Fraction F1, Fraction F2);
-	Fraction simplify(Fraction ans);
+	string add(int a, int b, int c, int d);
+	string subtract(int a, int b, int c, int d);
+	string multiply(int a, int b, int c, int d);
+	string divide(int a, int b, int c, int d);
+	string simplify(int newnNum, int newDen);
 
 private:
 	int numerator;
