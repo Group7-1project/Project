@@ -15,6 +15,7 @@ private:
 public:
 	Log(int b, int x); // initialization constructor
 	Log(); // default constructor
+	//Log(string strLog);
 
 	int getBase();
 	int getOperand();
@@ -28,4 +29,5 @@ public:
 	Log divide(Log l1, Log l2);
 
 	Log simplify(Log l1, Log l2);
+	void printLog(int base, int operand);
 };
