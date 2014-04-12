@@ -25,7 +25,7 @@ private:
 	//Fields
 	double base;
 	double power;
-
+	double ans;
 };
 
 
