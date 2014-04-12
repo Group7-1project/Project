@@ -18,13 +18,13 @@ public:
 	~Exponential();
 
 	//Methods
-	double simplify(base, power);
+	Number simplify(base, power);
 	double evaluate(Number base, Number power);
 
 private:
 	//Fields
 	double base;
-	double power;
+	Number power;
 	double ans;
 };
 
