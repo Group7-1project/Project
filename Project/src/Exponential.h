@@ -8,23 +8,22 @@
 #ifndef EXPONENTIAL_H_
 #define EXPONENTIAL_H_
 
+#include "Number.h"
+
 class Exponential
 {
 public:
 	//Constructor
-	Exponential();
+	Exponential(base, power);
 	~Exponential();
 
 	//Methods
-	int add();
-	int subtract();
-	int multiply();
-	int divide();
-	int simplify();
+	double simplify(base, power);
+	double evaluate(Number base, Number power);
 
 private:
 	//Fields
-	int base;
+	double base;
 	double power;
 
 };
