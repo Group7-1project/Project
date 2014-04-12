@@ -9,29 +9,55 @@
 #include "Fraction.h"
 using namespace std;
 
-Fraction separate(Fraction F1, Fraction F2){
+Fraction separate(int a, int b, int c, int d){
 
 
 
 }
 
 
-Fraction add(Fraction F1, Fraction F2){
+string add(int a, int b, int c, int d){
+	int num1, num2;
+	int den1,den2;
 
+	int temp1 = num1*den2;
+	int temp2 = num2*den1;
+	int newDen = den1*den2;
+	int newNum = temp1+temp2;
 
+	int ans = simplify(int newNum, int newDen);
+	return ans
 }
 
-Fraction subtract(Fraction F1, Fraction F2){
+string subtract(int a, int b, int c, int d){
+	int num1, num2;
+	int den1,den2;
+
+	int temp1 = num1*den2;
+	int temp2 = num2*den1;
+	int newDen = den1*den2;
+	int newNum = temp1-temp2;
+
+	int ans = simplify(int newNum, int newDen);
+	return ans
 }
 
-Fraction multiply(Fraction F1, Fraction F2){
+string multiply(int a, int b, int c, int d){
+	int num1, num2;
+	int den1,den2;
+
+	int newNum = num1*num2;
+	int newDen = den1*den2;
+
+	int ans = simplify(int newNum, int newDen);
+	return ans
 }
 
-Fraction divide(Fraction F1, Fraction F2){
+string divide(int a, int b, int c, int d){
 }
 
 
-Fraction simplify(Fraction ans){ //Binary GCD Algorithm
+string simplify(int newNum, int newDem){ //Binary GCD Algorithm
 
 int numerator = x;
 int denominator = y;

@@ -9,23 +9,33 @@
 #define EXPONENTIAL_H_
 
 #include "Number.h"
+#include "Fraction.h"
 
 class Exponential
 {
 public:
-	//Constructor
-	Exponential(base, power);
+
+	//Constructor and Destructor
+	Exponential(int base, int power);
 	~Exponential();
 
 	//Methods
-	Number simplify(base, power);
-	double evaluate(Number base, Number power);
+
+	Number simplify(int base, int power);
+	Number simplify(int base, Fraction power2);
+	Number evaluate(int base, int power);
+	Number evaluate2(int base, Fraction power2);
 
 private:
+
 	//Fields
-	double base;
-	Number power;
-	double ans;
+
+	int base;
+	Fraction base2;
+	int power;
+	Fraction power2;
+	Number ans;
+
 };
 
 
