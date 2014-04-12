@@ -9,13 +9,26 @@
 #include "Fraction.h"
 using namespace std;
 
+Fraction separate(Fraction F1, Fraction F2){
+
+
+
+}
+
+
 Fraction add(Fraction F1, Fraction F2){
+
 
 }
 
 Fraction subtract(Fraction F1, Fraction F2){
 }
 
+Fraction multiply(Fraction F1, Fraction F2){
+}
+
+Fraction divide(Fraction F1, Fraction F2){
+}
 
 
 Fraction simplify(Fraction ans){ //Binary GCD Algorithm
