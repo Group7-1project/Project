@@ -8,6 +8,7 @@
 #include "Number.h"
 #include <exception>
 #include "Exponential.h"
+#include <cmath>
 
 using namespace std;
 
