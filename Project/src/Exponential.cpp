@@ -13,6 +13,12 @@
 
 using namespace std;
 
+Exponential::Exponential(int base, int power)
+{
+	int s = sqrt(base);
+	int c = cbrt(base);
+}
+
 Number Exponential::simplify(int base, int power)  // All cases covered
 {
 
@@ -40,7 +46,7 @@ Number Exponential::simplify(int base, int power)  // All cases covered
 
 	else if(base != 0 && power < 0)  // 3^-2
 	{
-		return (1/(evaluate(base, power))); // Return alright?
+		return (1/(evaluate(base, power)));
 	}
 
 	return Fraction(0);
@@ -71,13 +77,12 @@ Number Exponential::simplify(int base, Fraction power2) // All cases considered
 
 	else if(base < 0 && power2.denominator%2 == 0)  // -3^(1/2)
 	{
-		cout << "Cannot take even root of a negative number." << endl;
-		return Fraction(0);
+		throw invalid_argument("Cannot take even root of a negative number");
 	}
 
 	else if(base > 0 && power2.denominator%2 == 0 && power2 > 0) // 4^(3/2)
 	{
-		return evaluate2(sqrt(base), power2.numerator); //Function pointers needed?; will ints work in sqrt and cbrt function?
+		return evaluate2(sqrt(base), power2.numerator);
 	}
 
 	else if(base > 0 && power2.denominator%2 == 0 && power2 < 0) // 4^(-3/2)
@@ -87,7 +92,7 @@ Number Exponential::simplify(int base, Fraction power2) // All cases considered
 
 	else if(power2.denominator%2 != 0 && power2.numerator > 0) // 8^(2/3) and -8^(2/3)
 	{
-		return evaluate2(cbrt(base), power2.numerator); //type check
+		return evaluate2(cbrt(base), power2.numerator);
 	}
 
 	else if(power2.denominator%2 != 0 && power2.numerator < 0) // 8^(-2/3) and -8^(-2/3)
@@ -111,7 +116,7 @@ Number Exponential::evaluate(int base, int power)
 	else
 	{
 		Number ans = (base * evaluate(base, power-1));
-		return ans;
+		return Fraction(ans);
 	}
 }
 
@@ -125,6 +130,18 @@ Number Exponential::evaluate2(int base, Fraction power2)
 	{
 		Number ans2 = (base * evaluate2(base, power2.numerator-1));
 		return ans2;
+	}
+
+	//Helper Methods
+
+	int Exponential::helpEvaluate()
+	{
+
+	}
+
+	int Exponential::helpEvaluate2()
+	{
+
 	}
 
 }
