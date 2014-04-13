@@ -17,6 +17,7 @@ public:
 
 	//Constructor and Destructor
 	Exponential(int base, int power);
+	Exponential(int base, Fraction power);
 	~Exponential();
 
 	//Methods

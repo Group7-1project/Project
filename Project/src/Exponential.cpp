@@ -15,8 +15,16 @@ using namespace std;
 
 Exponential::Exponential(int base, int power)
 {
-	int s = sqrt(base);
-	int c = cbrt(base);
+	this->base = base;
+	this->power = power;
+}
+
+Exponential::Exponential(int base, Fraction power)
+{
+this->base = base;
+this->power = power;
+int s = sqrt(base);
+int c = cbrt(base);
 }
 
 Number Exponential::simplify(int base, int power)  // All cases covered
