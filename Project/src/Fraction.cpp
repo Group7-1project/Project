@@ -7,89 +7,86 @@
 
 
 #include "Fraction.h"
-using namespace std;
 
-Fraction separate(int a, int b, int c, int d){
+Fraction::Fraction(int num, int den, int op){
+	numerator = num;
+	denominator = den;
+	operand = op;
+}
 
+int Fraction::getNum(){
+	return numerator;
+}
 
+int Fraction::getDen(){
+	return denominator;
+}
+
+int Fraction::getOperand() {
+	return operand;
+}
+
+void Fraction::setNum(int n){
+	numerator = n;
+}
+
+void Fraction::setDen(int d){
+	denominator = d;
+}
+
+void Fraction::setOperand(int o){
+	operand = o;
+}
+
+void Fraction::add(Fraction& F1, Fraction& F2){
+
+	numerator = (F1.numerator*F2.denominator) + (F2.numerator*F1.denominator);
+	denominator = (F1.denominator*F2.denominator);
 
 }
 
-
-string add(int a, int b, int c, int d){
-	int num1, num2;
-	int den1,den2;
-
-	int temp1 = num1*den2;
-	int temp2 = num2*den1;
-	int newDen = den1*den2;
-	int newNum = temp1+temp2;
-
-	int ans = simplify(int newNum, int newDen);
-	return ans
+void Fraction::subtract(Fraction& F1, Fraction& F2){
+	numerator = (F1.numerator*F2.denominator) - (F2.numerator*F1.denominator);
+	denominator = (F1.denominator*F2.denominator);
 }
 
-string subtract(int a, int b, int c, int d){
-	int num1, num2;
-	int den1,den2;
+void Fraction::multiply(Fraction& F1, Fraction& F2){
 
-	int temp1 = num1*den2;
-	int temp2 = num2*den1;
-	int newDen = den1*den2;
-	int newNum = temp1-temp2;
-
-	int ans = simplify(int newNum, int newDen);
-	return ans
+	numerator = (F1.numerator * F2.numerator);
+	denominator = (F1.denominator * F2.denominator);
 }
 
-string multiply(int a, int b, int c, int d){
-	int num1, num2;
-	int den1,den2;
+void Fraction::divide(Fraction& F1, Fraction& F2){
 
-	int newNum = num1*num2;
-	int newDen = den1*den2;
-
-	int ans = simplify(int newNum, int newDen);
-	return ans
-}
-
-string divide(int a, int b, int c, int d){
+	numerator = (F1.numerator*F2.denominator);
+	denominator = (F2.numerator*F1.denominator);
 }
 
 
-string simplify(int newNum, int newDem){ //Binary GCD Algorithm
+void Fraction::simplify(Fraction){
 
-int numerator = x;
-int denominator = y;
-
-// simple cases (termination)
-if (x == y)
-    return x;
-
-if (x == 0)
-    return v;
-
-if (y == 0)
-    return u;
-
-// look for factors of 2
-if (~x & 1) // u is even
-{
-    if (y & 1) // v is odd
-        return simplify(x >> 1, y);
-    else // both u and v are even
-        return simplify(x >> 1, y >> 1) << 1;
-}
-
-if (~y & 1) // u is odd, v is even
-    return simplify(x, y >> 1);
-
-// reduce larger argument
-if (x > y)
-    return simplify((x - y) >> 1, y);
-
-return simplify((x - y) >> 1, y);
-}
+	int a,b,r,gcd;
+	a = numerator;
+	b = denominator;
+	if (b == 0)
+	{
+		cout << "Illegal fraction: division by 0";
+	}
+	else if (a == 0)
+	{
+		numerator = 0;
+		denominator = 1;
+		return;
+	}
+	while (a != 0)
+		if (a < b)
+		{
+			r = a; a = b; b = r;
+			a = a - b;
+		}
+	gcd = b;
+	numerator = numerator / gcd;
+	denominator = denominator / gcd;
 
 }
 
