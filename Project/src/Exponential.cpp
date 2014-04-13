@@ -16,29 +16,29 @@ using namespace std;
 Number Exponential::simplify(int base, int power)
 {
 
-	if(base == 0 && power > 0)
+	if(base == 0 && power > 0) // 0^1
 	{
 		return 0;
 	}
 
-	else if(base == 0 && power <= 0)
+	else if(base == 0 && power <= 0) // 0^-1
 	{
 		cout << "Not a valid operation." << endl; //Need to add exception handling
 		return 0;
 	}
 
-	else if(base != 0 && power == 0)
+	else if(base != 0 && power == 0) // 2^0
 	{
 		return 1;
 	}
 
-	else if(base != 0 && power > 0)
+	else if(base != 0 && power > 0) // 2^3
 	{
 		evaluate(base, power);
 		return ans;
 	}
 
-	else if(base != 0 && power < 0)
+	else if(base != 0 && power < 0)  // 3^-2
 	{
 		return (1/(evaluate(base, power)));
 	}
@@ -48,34 +48,33 @@ Number Exponential::simplify(int base, int power)
 
 Number Exponential::simplify(int base, Fraction power)
 {
-	if(base == 0 && power > 0)
+	if(denominator == 0)    // 3^(1/0)
+			{
+				//throw an error!
+			}
+	else if(base == 0 && power > 0)   // 0^2
 		{
 			return 0;
 		}
 
-	else if(base == 0 && power <= 0)
+	else if(base == 0 && power <= 0)  // 0^0 or 0^(-6)
 	{
 		cout << "Not a valid operation." << endl; //Need to add exception handling
 	}
 
-	else if(denominator == 0)
-		{
-			//throw an error!
-		}
-
-	else if(base < 0 && denominator%2 == 0)
+	else if(base < 0 && denominator%2 == 0)  // -3^(1/2)
 	{
 		cout << "Cannot take even root of a negative number." << endl; //Need to add exception handling
 	}
 
-	else if(base >= 0 && denominator%2 == 0)
+	else if(base >= 0 && denominator%2 == 0 && numerator >= 0) // 4^(3/2)
 	{
-		return sqrt(base);
+		return evaluate(sqrt(base), numerator); //Function pointers needed?
 	}
 
-	else if(denominator%2 != 0)
+	else if(denominator%2 != 0 && numerator >= 0) // 8^(2/3)
 	{
-		return cbrt(base);
+		return evaluate(cbrt(base), numerator);
 	}
 
 	else if(power*-1 > 0)
@@ -104,7 +103,10 @@ Number Exponential::evaluate(int base, int power)
 	}
 }
 
-Number Exponential::evaluate2(int base, Fraction power)
+Number Exponential::evaluate2(Fraction base2, Fraction power2)
 {
-	if(base != 0 && denominator%2 == 0)
+	if(base2 != 0 && denominator%2 == 0)
+	{
+
+	}
 }
