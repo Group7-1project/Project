@@ -46,7 +46,7 @@ Number Exponential::simplify(int base, int power)  // All cases covered
 	return 0;
 }
 
-Number Exponential::simplify(int base, Fraction power2)
+Number Exponential::simplify(int base, Fraction power2) // All cases considered
 {
 
 	if(denominator == 0)    // 3^(1/0)
@@ -85,21 +85,15 @@ Number Exponential::simplify(int base, Fraction power2)
 		return 1/(evaluate(sqrt(base), numerator*-1)); // parameter types...doubles and ints?
 	}
 
-	else if(denominator%2 != 0 && numerator > 0) // 8^(2/3) and -8^(2/3)
+	else if(denominator%2 != 0 && numerator != 0) // 8^(2/3) and -8^(2/3)
 	{
-		return evaluate(cbrt(base), numerator);
+		return evaluate(cbrt(base), numerator); //type check
 	}
 
 	else if(denominator%2 != 0 && numerator < 0) // 8^(-2/3) and -8^(-2/3)
 		{
 			return 1/(evaluate(cbrt(base), numerator)); // parameter compatibility..doubles and ints?
 		}
-
-	else if(base power2*-1 > 0 &&)
-	{
-		evaluate((1/base), (power2*-1))
-		return ans2; // here or there?
-	}
 
 	return 0;
 }
@@ -121,10 +115,15 @@ Number Exponential::evaluate(int base, int power)
 	}
 }
 
-Number Exponential::evaluate2(Fraction base2, Fraction power2)
+Number Exponential::evaluate2(int base, Fraction power2)
 {
-	if(base2 != 0 && denominator%2 == 0)
+	if(numerator == 1)
 	{
-
+		return base;
 	}
+	else
+	{
+		ans2 = (base * evaluate2(base, numerator-1));
+	}
+
 }
