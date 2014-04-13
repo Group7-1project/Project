@@ -37,6 +37,9 @@ private:
 	Fraction power2;
 	Number ans;
 
+	int s = sqrt(base);
+	int c = cbrt(base);
+
 };
 
 

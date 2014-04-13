@@ -6,7 +6,7 @@
  */
 
 #include "Number.h"
-#include <exception>
+#include <stdexcept>
 #include "Exponential.h"
 #include <cmath>
 #include "Fraction.h"
@@ -43,7 +43,7 @@ Number Exponential::simplify(int base, int power)  // All cases covered
 		return (1/(evaluate(base, power))); // Return alright?
 	}
 
-	return 0;
+	return Fraction(0);
 }
 
 Number Exponential::simplify(int base, Fraction power2) // All cases considered
