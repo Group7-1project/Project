@@ -82,22 +82,22 @@ Number Exponential::simplify(int base, Fraction power2) // All cases considered
 
 	else if(base > 0 && power2.denominator%2 == 0 && power2 > 0) // 4^(3/2)
 	{
-		return evaluate2(sqrt(base), power2.numerator);
+		return evaluate(s, power2.numerator);
 	}
 
 	else if(base > 0 && power2.denominator%2 == 0 && power2 < 0) // 4^(-3/2)
 	{
-		return 1/(evaluate2(sqrt(base), power2.numerator*-1));
+		return 1/(evaluate(s, power2.numerator*-1));
 	}
 
 	else if(power2.denominator%2 != 0 && power2.numerator > 0) // 8^(2/3) and -8^(2/3)
 	{
-		return evaluate2(cbrt(base), power2.numerator);
+		return evaluate(c, power2.numerator);
 	}
 
 	else if(power2.denominator%2 != 0 && power2.numerator < 0) // 8^(-2/3) and -8^(-2/3)
 		{
-			return 1/(evaluate2(cbrt(base), power2.numerator));
+			return 1/(evaluate(c, power2.numerator));
 		}
 
 	return Fraction(0);
@@ -106,21 +106,21 @@ Number Exponential::simplify(int base, Fraction power2) // All cases considered
 
 //Evaluating methods called by simplifying methods
 
-Number Exponential::evaluate(int base, int power)
+Fraction Exponential::evaluate(int base, int power)
 {
 	if(power == 1)
 	{
-		return base;
+		return Fraction(base);
 	}
 
 	else
 	{
-		Number ans = (base * evaluate(base, power-1));
-		return Fraction(ans);
+		int ans = (base * evaluate(base, power-1));
+		return Fraction(helpEvaluate(base, power));
 	}
 }
 
-Number Exponential::evaluate2(int base, Fraction power2)
+/*Number Exponential::evaluate2(int base, Fraction power2)
 {
 	if(power2.numerator == 1)
 	{
@@ -131,17 +131,26 @@ Number Exponential::evaluate2(int base, Fraction power2)
 		Number ans2 = (base * evaluate2(base, power2.numerator-1));
 		return ans2;
 	}
+}*/
 
 	//Helper Methods
 
-	int Exponential::helpEvaluate()
+	int Exponential::helpEvaluate(int base, int power)
 	{
+		if(power == 1)
+			{
+				return base;
+			}
 
+			else
+			{
+				int ans = (base * helpEvaluate(base, power-1));
+				return ans;
+			}
 	}
 
-	int Exponential::helpEvaluate2()
-	{
+	//int Exponential::helpEvaluate2()
+	//{
 
-	}
+	//}
 
-}
