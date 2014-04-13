@@ -48,39 +48,57 @@ Number Exponential::simplify(int base, int power)  // All cases covered
 
 Number Exponential::simplify(int base, Fraction power2)
 {
+
 	if(denominator == 0)    // 3^(1/0)
-			{
-				// throw an error!
-			}
+	{
+		return 0; 	// throw an error!
+	}
 
-	else if(base == 0 && power2 > 0)   // 0^2
-		{
-			return 0;
-		}
+	else if(base == 0 && power2 > 0)   // 0^(2/1)
+	{
+		return 0;
+	}
 
-	else if(base == 0 && power2 <= 0)  // 0^0 or 0^(-6)
+	else if(base == 0 && power2 <= 0)  // 0^0 or 0^(-6/1)
 	{
 		cout << "Not a valid operation." << endl; //Need to add exception handling
+	}
+
+	else if(base !=0 && power2 == 0) // 3^(0/2)
+	{
+		return 1;
 	}
 
 	else if(base < 0 && denominator%2 == 0)  // -3^(1/2)
 	{
 		cout << "Cannot take even root of a negative number." << endl; //Need to add exception handling
+		return 0;
 	}
 
-	else if(base >= 0 && denominator%2 == 0 && numerator >= 0) // 4^(3/2)
+	else if(base > 0 && denominator%2 == 0 && power2 > 0) // 4^(3/2)
 	{
 		return evaluate(sqrt(base), numerator); //Function pointers needed?; will ints work in sqrt and cbrt function?
 	}
 
-	else if(denominator%2 != 0 && numerator >= 0) // 8^(2/3)
+	else if(base > 0 && denominator%2 == 0 && power2 < 0) // 4^(-3/2)
+	{
+		return 1/(evaluate(sqrt(base), numerator*-1)); // parameter types...doubles and ints?
+	}
+
+	else if(denominator%2 != 0 && numerator > 0) // 8^(2/3) and -8^(2/3)
 	{
 		return evaluate(cbrt(base), numerator);
 	}
 
-	else if(power2*-1 > 0)
+	else if(denominator%2 != 0 && numerator < 0) // 8^(-2/3) and -8^(-2/3)
+		{
+			return 1/(evaluate(cbrt(base), numerator)); // parameter compatibility..doubles and ints?
+		}
+
+	else if(base power2*-1 > 0 &&)
 	{
 		evaluate((1/base), (power2*-1))
+		return ans2; // here or there?
 	}
 
 	return 0;
@@ -99,7 +117,6 @@ Number Exponential::evaluate(int base, int power)
 	else
 	{
 		ans = (base * evaluate(base, power-1));
-
 		return ans;
 	}
 }
