@@ -13,7 +13,7 @@
 
 using namespace std;
 
-Number Exponential::simplify(int base, int power)
+Number Exponential::simplify(int base, int power)  // All cases covered
 {
 
 	if(base == 0 && power > 0) // 0^1
@@ -23,7 +23,7 @@ Number Exponential::simplify(int base, int power)
 
 	else if(base == 0 && power <= 0) // 0^-1
 	{
-		cout << "Not a valid operation." << endl; //Need to add exception handling
+		cout << "Not a valid operation." << endl; // Need to add exception handling
 		return 0;
 	}
 
@@ -35,29 +35,30 @@ Number Exponential::simplify(int base, int power)
 	else if(base != 0 && power > 0) // 2^3
 	{
 		evaluate(base, power);
-		return ans;
+		return ans; // here or there?
 	}
 
 	else if(base != 0 && power < 0)  // 3^-2
 	{
-		return (1/(evaluate(base, power)));
+		return (1/(evaluate(base, power))); // Return alright?
 	}
 
 	return 0;
 }
 
-Number Exponential::simplify(int base, Fraction power)
+Number Exponential::simplify(int base, Fraction power2)
 {
 	if(denominator == 0)    // 3^(1/0)
 			{
-				//throw an error!
+				// throw an error!
 			}
-	else if(base == 0 && power > 0)   // 0^2
+
+	else if(base == 0 && power2 > 0)   // 0^2
 		{
 			return 0;
 		}
 
-	else if(base == 0 && power <= 0)  // 0^0 or 0^(-6)
+	else if(base == 0 && power2 <= 0)  // 0^0 or 0^(-6)
 	{
 		cout << "Not a valid operation." << endl; //Need to add exception handling
 	}
@@ -69,7 +70,7 @@ Number Exponential::simplify(int base, Fraction power)
 
 	else if(base >= 0 && denominator%2 == 0 && numerator >= 0) // 4^(3/2)
 	{
-		return evaluate(sqrt(base), numerator); //Function pointers needed?
+		return evaluate(sqrt(base), numerator); //Function pointers needed?; will ints work in sqrt and cbrt function?
 	}
 
 	else if(denominator%2 != 0 && numerator >= 0) // 8^(2/3)
@@ -77,16 +78,16 @@ Number Exponential::simplify(int base, Fraction power)
 		return evaluate(cbrt(base), numerator);
 	}
 
-	else if(power*-1 > 0)
+	else if(power2*-1 > 0)
 	{
-		evaluate((1/base), power*-1)
+		evaluate((1/base), (power2*-1))
 	}
 
 	return 0;
 }
 
 
-//Evaluating methods
+//Evaluating methods called by simplifying methods
 
 Number Exponential::evaluate(int base, int power)
 {
