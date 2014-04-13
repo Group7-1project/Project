@@ -58,14 +58,29 @@ Number Exponential::simplify(int base, Fraction power)
 		cout << "Not a valid operation." << endl; //Need to add exception handling
 	}
 
+	else if(denominator == 0)
+		{
+			//throw an error!
+		}
+
 	else if(base < 0 && denominator%2 == 0)
 	{
 		cout << "Cannot take even root of a negative number." << endl; //Need to add exception handling
 	}
 
-	else if(base < 0 && denominator%2 != 0)
+	else if(base >= 0 && denominator%2 == 0)
 	{
+		return sqrt(base);
+	}
 
+	else if(denominator%2 != 0)
+	{
+		return cbrt(base);
+	}
+
+	else if(power*-1 > 0)
+	{
+		evaluate((1/base), power*-1)
 	}
 
 	return 0;
