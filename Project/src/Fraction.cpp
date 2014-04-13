@@ -8,7 +8,7 @@
 
 #include "Fraction.h"
 #include <iostream>
-#include <exception>
+#include <stdexcept>
 using namespace std;
 
 Fraction::Fraction(){						//default sets fraction to 0
@@ -24,6 +24,10 @@ Fraction::Fraction(int n){					//sets n/1
 Fraction::Fraction(int n, int d){			//sets n/d
 	numerator = n;
 	denominator = d;
+
+	if(d == 0){
+		throw invalid_argument("0 in the denominator");
+	}
 }
 
 Fraction::~Fraction(){
