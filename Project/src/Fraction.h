@@ -8,7 +8,7 @@
 #ifndef FRACTION_H_
 #define FRACTION_H_
 
-class Fraction: public Number{
+class Fraction{
 public:
 	//constructor
 	Fraction(); 					// default constructor

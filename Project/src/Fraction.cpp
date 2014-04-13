@@ -8,45 +8,68 @@
 
 #include "Fraction.h"
 #include <iostream>
+#include <exception>
 using namespace std;
 
-Fraction::Fraction(){
+Fraction::Fraction(){						//default sets fraction to 0
 	numerator = 0;
 	denominator = 1;
 }
 
-Fraction::Fraction(int n){
+Fraction::Fraction(int n){					//sets n/1
 	numerator = n;
 	denominator = 1;
 }
 
-Fraction::Fraction(int n, int d){
+Fraction::Fraction(int n, int d){			//sets n/d
 	numerator = n;
 	denominator = d;
 }
 
+Fraction::~Fraction(){
+	delete &numerator;
+	delete &denominator;
+}
+
 void Fraction::add(Fraction& F1, Fraction& F2){
 
+	//if numbers are rational
 	numerator = (F1.numerator*F2.denominator) + (F2.numerator*F1.denominator);
 	denominator = (F1.denominator*F2.denominator);
+
+	//if numbers are irrational
+	//methods here
 
 }
 
 void Fraction::subtract(Fraction& F1, Fraction& F2){
+
+	//if numebers are rational
 	numerator = (F1.numerator*F2.denominator) - (F2.numerator*F1.denominator);
 	denominator = (F1.denominator*F2.denominator);
+
+	//if numbers are irrational
+	//methods here
 }
 
 void Fraction::multiply(Fraction& F1, Fraction& F2){
 
+	//if numbers are rational
 	numerator = (F1.numerator * F2.numerator);
 	denominator = (F1.denominator * F2.denominator);
+
+	//if numbers are irrational
+	//methods
 }
 
 void Fraction::divide(Fraction& F1, Fraction& F2){
 
+	//if numbers are rational
 	numerator = (F1.numerator*F2.denominator);
 	denominator = (F2.numerator*F1.denominator);
+
+	//if numbers are irrational
+	//methods
 }
 
 
