@@ -9,6 +9,7 @@
 #define EXPONENTIAL_H_
 
 #include "Number.h"
+#include <cmath>
 
 class Exponential
 {
@@ -16,16 +17,17 @@ public:
 
 	//Constructor and Destructor
 	Exponential(int base, int power);
+	Exponential(int base, Fraction power);
 	~Exponential();
 
 	//Methods
 
 	Number simplify(int base, int power);
 	Number simplify(int base, Fraction power2);
-	Number simplify(Fraction base, int power);
 	Number simplify(Fraction base, Fraction power);
-	Number evaluate(int base, int power);
-	Number evaluate2(int base, Fraction power2);
+	Fraction evaluate(int base, int power);
+	//Number evaluate2(int base, Fraction power2);
+	int helpEvaluate(int base, int power);
 
 private:
 
@@ -36,6 +38,9 @@ private:
 	int power;
 	Fraction power2;
 	Number ans;
+
+	int s = sqrt(base);
+	int c = cbrt(base);
 
 };
 
