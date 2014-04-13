@@ -11,17 +11,12 @@
 class Fraction: public Number{
 public:
 	//constructor
-	Fraction(int num, int den, int op); // default constructor
+	Fraction(); 					// default constructor
+	Fraction(int n);				//Sets n/1
+	Fraction(int n, int d);			//Sets n/d
 	~Fraction();
 
 	//methods
-	int getNum();
-	int getDen();
-	int getOperand();
-	void setNum(int n);
-	void setDen(int d);
-	void setOperand(int o);
-
 	void add(Fraction& F1, Fraction& F2);
 	void subtract(Fraction& F1, Fraction& F2);
 	void multiply(Fraction& F1, Fraction& F2);
@@ -31,7 +26,7 @@ public:
 private:
 	int numerator;
 	int denominator;
-	int operand;
+
 
 
 };

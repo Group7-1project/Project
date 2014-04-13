@@ -7,35 +7,22 @@
 
 
 #include "Fraction.h"
+#include <iostream>
+using namespace std;
 
-Fraction::Fraction(int num, int den, int op){
-	numerator = num;
-	denominator = den;
-	operand = op;
+Fraction::Fraction(){
+	numerator = 0;
+	denominator = 1;
 }
 
-int Fraction::getNum(){
-	return numerator;
-}
-
-int Fraction::getDen(){
-	return denominator;
-}
-
-int Fraction::getOperand() {
-	return operand;
-}
-
-void Fraction::setNum(int n){
+Fraction::Fraction(int n){
 	numerator = n;
+	denominator = 1;
 }
 
-void Fraction::setDen(int d){
+Fraction::Fraction(int n, int d){
+	numerator = n;
 	denominator = d;
-}
-
-void Fraction::setOperand(int o){
-	operand = o;
 }
 
 void Fraction::add(Fraction& F1, Fraction& F2){
