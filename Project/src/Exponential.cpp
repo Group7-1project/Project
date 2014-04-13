@@ -77,22 +77,22 @@ Number Exponential::simplify(int base, Fraction power2) // All cases considered
 
 	else if(base > 0 && denominator%2 == 0 && power2 > 0) // 4^(3/2)
 	{
-		return evaluate(sqrt(base), numerator); //Function pointers needed?; will ints work in sqrt and cbrt function?
+		return evaluate2(sqrt(base), numerator); //Function pointers needed?; will ints work in sqrt and cbrt function?
 	}
 
 	else if(base > 0 && denominator%2 == 0 && power2 < 0) // 4^(-3/2)
 	{
-		return 1/(evaluate(sqrt(base), numerator*-1)); // parameter types...doubles and ints?
+		return 1/(evaluate2(sqrt(base), numerator*-1)); // parameter types...doubles and ints?
 	}
 
-	else if(denominator%2 != 0 && numerator != 0) // 8^(2/3) and -8^(2/3)
+	else if(denominator%2 != 0 && numerator > 0) // 8^(2/3) and -8^(2/3)
 	{
-		return evaluate(cbrt(base), numerator); //type check
+		return evaluate2(cbrt(base), numerator); //type check
 	}
 
 	else if(denominator%2 != 0 && numerator < 0) // 8^(-2/3) and -8^(-2/3)
 		{
-			return 1/(evaluate(cbrt(base), numerator)); // parameter compatibility..doubles and ints?
+			return 1/(evaluate2(cbrt(base), numerator)); // parameter compatibility..doubles and ints?
 		}
 
 	return 0;
@@ -124,6 +124,7 @@ Number Exponential::evaluate2(int base, Fraction power2)
 	else
 	{
 		ans2 = (base * evaluate2(base, numerator-1));
+		return ans2;
 	}
 
 }
