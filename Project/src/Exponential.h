@@ -9,7 +9,6 @@
 #define EXPONENTIAL_H_
 
 #include "Number.h"
-#include "Fraction.h"
 
 class Exponential
 {
@@ -23,6 +22,8 @@ public:
 
 	Number simplify(int base, int power);
 	Number simplify(int base, Fraction power2);
+	Number simplify(Fraction base, int power);
+	Number simplify(Fraction base, Fraction power);
 	Number evaluate(int base, int power);
 	Number evaluate2(int base, Fraction power2);
 
