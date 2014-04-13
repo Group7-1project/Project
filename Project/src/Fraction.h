@@ -8,30 +8,27 @@
 #ifndef FRACTION_H_
 #define FRACTION_H_
 
-class Fraction{
+class Fraction: public Number {
 public:
 	//constructor
-	Fraction(); 					// default constructor
-	Fraction(int n);				//Sets n/1
-	Fraction(int n, int d);			//Sets n/d
+	Fraction(Number* numerator, Number* denominator);
 	~Fraction();
+	Number* getNumerator();
+	Number* getDenominator();
+
+
 
 	//methods
-	void add(Fraction& F1, Fraction& F2);
-	void subtract(Fraction& F1, Fraction& F2);
-	void multiply(Fraction& F1, Fraction& F2);
-	void divide(Fraction& F1, Fraction& F2);
-	void simplify(Fraction);
+	Number* add(Number* F1);
+	Number* subtract(Number* F1);
+	Number* multiply(Number* F1);
+	Number* divide(Number* F1);
+	Number* simplify();
 
 private:
-	int numerator;
-	int denominator;
+	Number* numerator;
+	Number* denominator;
 
 
 
 };
-
-
-
-
-#endif /* FRACTION_H_ */
