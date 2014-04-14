@@ -12,7 +12,7 @@ class Integer: public Number {
 public:
 
 	//Constructor
-	Integer(Number n);
+	Integer(Number* n);
 
 	//Methods
 	Number* getInt();
