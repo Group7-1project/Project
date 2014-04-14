@@ -48,11 +48,11 @@ void Log::simplify(Log l1) {
 	int answer;
 	if(b == x) {
 		answer = 1;
-		cout << answer <<endl;
+		cout << "The answer is " << answer <<endl;
 	}
 	if(x == 1) {
 		answer = 0;
-		cout << answer <<endl;
+		cout << "The answer is " << answer <<endl;
 	}
 	if(x <= 0) {
 		cout << "error: cannot take log of a negative number" <<endl;
@@ -64,9 +64,9 @@ void Log::simplify(Log l1) {
 		x /= b;
 	}
 	int y = x;
-	cout << "base = " << b <<endl;
-	cout << "count = " << i <<endl;
-	cout << "y = " << y <<endl;
+	// cout << "base = " << b <<endl;
+	// cout << "count = " << i <<endl;
+	// cout << "y = " << y <<endl;
 	cout << "Log_" << b << ":" << l1.getOperand() << " = " <<
 			i << " + Log_" << b << ":" << y <<endl;
 
