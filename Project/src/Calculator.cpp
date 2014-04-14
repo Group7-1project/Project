@@ -1,11 +1,18 @@
 
-#include "Calulator.h"
+#include "Calculator.h"
 
 void Calculator::DisplayMenu(){
     //This will display the menu of the calculator.
-    cout << "Welcome to the calculator! To begin calculating, simply enter an equation.\n";
+    cout << "Welcome to the flopless calculator! To begin calculating, simply enter an equation.\n";
     cout << "To retrieve last answer, type ans. Logs will be input as log_base(number)\n";
-    cout << "Radicals can be input as rad_index(number)";
+    cout << "Radicals can be input as rad_index(number)\n";
+}
+void Calculator::calculate(){
+    string ip;
+    while(ip!='q' || ip!='Q'){
+        cin >> ip;
+        parse(removeSpace(ip));
+    }
 }
 
 bool Calculator::isDigit(char c){
@@ -36,38 +43,49 @@ string Calculator::parse(string equation){
     int outputCount=0;
     bool match=true;
     for(int i=0;i<equation.size();i++){
-        if(isDigit(equation[i])==false && equation[i]!=')'){
+        if(equation[i]=='+'||equation[i]=='-'||equation[i]=='*'||equation[i]=='/'||equation[i]=='('){
             if(equation[i]=='(')
                 match=false;
-            if(precedence(equation[i]) < precedence(op[opCount])){
-                outputRPN[outputCount]=op[opCount];
+            if(precedence(equation[i]) < precedence(op[opCount-1])){
                 outputCount++;
+                opCount--;
+                outputRPN[outputCount]=op[opCount];
                 op[opCount]==equation[i];
             }
             op[opCount]=equation[i];
             opCount++;
             outputCount++;
         }
-        if(equation[i]==')'){
+        else if(equation[i]==')'){
             match=true;
             int j=0;
             while(equation[j]!='('){
                 outputRPN[outputCount]=op[opCount];
                 opCount--;
-                outputCount++;
                 j--;
-                if(j==-1){
+                if(j==-1)
                     parenthesisError();
-                }
             }
+        }
+        else if(equation[i]=='e'){
+            outputRPN[outputCount]=equation[i];
+            outputCount++;
+        }
+        else if(equation[i]=='p' && equation[i+1]=='i'){
+            outputRPN[outputCount]="pi";
+            outputCount++;
         }
         else if(isDigit(equation[i]))
                 outputRPN[outputCount]+=equation[i];
-        if(match)
-            return outputRPN;
-        else
-            parenthesisError();
     }
+    for(int i=opCount;i<=0;i--){
+        outputCount++;
+        outputRPN[outputCount]=op[opCount];
+    }
+    if(match)
+        return outputRPN;
+    else
+        parenthesisError();
 }
 string Calculator::removeSpace(string equation){
     int count=0;
@@ -80,6 +98,11 @@ string Calculator::removeSpace(string equation){
     return ret;
 }
 
-equateRPN(string RPNeq){
-    
+string Calculator::output(string RPNeq[]){
+    for(int i=0;i<RPNeq.size();i++){
+        if(RPNeq[i]=='+'){
+            int a=0;
+            a=(int)RPNeq[i-2]+(int)RPNeq[i-1];
+        }
+    }
 }
