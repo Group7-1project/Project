@@ -4,7 +4,7 @@
  *  Created on: Apr 9, 2014
  *      Author: Marney
  */
-// my local file
+
 #include "Number.h"
 
 class Log: public Number
