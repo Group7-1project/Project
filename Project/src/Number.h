@@ -7,10 +7,13 @@
  */
 
 #include <iostream>
+#include <cmath>
+
+
 using namespace std;
 
 // our Number superclass
-class Number {
+class Number{
 
 public:
 	Number();

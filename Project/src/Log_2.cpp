@@ -5,6 +5,7 @@
  *      Author: Marney
  */
 
+
 #include "Log_2.h"
 
 Log::Log(int b, int x) { // initialization constructor

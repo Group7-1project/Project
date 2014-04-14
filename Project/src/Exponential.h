@@ -9,10 +9,8 @@
 #define EXPONENTIAL_H_
 
 #include "Number.h"
-#include <cmath>
-#include "Integer.h"
 
-class Exponential
+class Exponential: public Number
 {
 public:
 

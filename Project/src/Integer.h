@@ -8,6 +8,8 @@
 #ifndef INTEGER_H_
 #define INTEGER_H_
 
+#include "Number.h"
+
 class Integer: public Number {
 public:
 

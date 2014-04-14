@@ -5,8 +5,6 @@
  *      Author: Marney
  */
 
-#include "Number.h"
-#include "Fraction.h"
 
 
 // This class is just for the irrational constants pi and e....and now, all irrationals xD

@@ -1,19 +1,19 @@
 
-#include "Calculator.h"
+#include "Number.h"
 
 void Calculator::DisplayMenu(){
     //This will display the menu of the calculator.
     cout << "Welcome to the flopless calculator! To begin calculating, simply enter an equation.\n";
-    cout << "To retrieve last answer, type ans. Logs will be input as log_base(number)\n";
+    cout << "To retrieve last answer, type ans.\n";
     cout << "Radicals can be input as rad_index(number)\n";
 }
-void Calculator::calculate(){
-    string ip;
-    while(ip!='q' || ip!='Q'){
-        cin >> ip;
-        parse(removeSpace(ip));
-    }
-}
+//void Calculator::calculate(){
+//    string ip;
+//    while(ip!='q' || ip!='Q'){
+//       cin >> ip;
+//        parse(removeSpace(ip));
+//    }
+//}
 
 bool Calculator::isDigit(char c){
     if(c=='1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8' || c=='9' || c=='0')
@@ -37,8 +37,8 @@ void Calculator::parenthesisError(){
 }
 
 string Calculator::parse(string equation){
-    string outputRPN[20];
-    string op[20];
+    char outputRPN[30];
+    char op[20];
     int opCount=0;
     int outputCount=0;
     bool match=true;
@@ -72,7 +72,7 @@ string Calculator::parse(string equation){
             outputCount++;
         }
         else if(equation[i]=='p' && equation[i+1]=='i'){
-            outputRPN[outputCount]="pi";
+            outputRPN[outputCount]='p';
             outputCount++;
         }
         else if(isDigit(equation[i]))
@@ -98,11 +98,11 @@ string Calculator::removeSpace(string equation){
     return ret;
 }
 
-string Calculator::output(string RPNeq[]){
+/*string Calculator::output(string RPNeq[]){
     for(int i=0;i<RPNeq.size();i++){
         if(RPNeq[i]=='+'){
             int a=0;
             a=(int)RPNeq[i-2]+(int)RPNeq[i-1];
         }
     }
-}
+}*/

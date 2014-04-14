@@ -8,6 +8,8 @@
 #ifndef FRACTION_H_
 #define FRACTION_H_
 
+#include "Number.h"
+
 class Fraction: public Number {
 public:
 	//constructor

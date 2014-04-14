@@ -5,11 +5,9 @@
  *      Author: LukeK
  */
 
-#include "Number.h"
-#include <stdexcept>
 #include "Exponential.h"
-#include <cmath>
-#include "Fraction.h"
+
+#include <stdexcept>
 
 using namespace std;
 

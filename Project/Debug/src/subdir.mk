@@ -8,33 +8,33 @@ CPP_SRCS += \
 ../src/Exponential.cpp \
 ../src/Fraction.cpp \
 ../src/Integer.cpp \
-../src/Irrational.cpp \
 ../src/Log.cpp \
 ../src/Log_2.cpp \
 ../src/Project.cpp \
-../src/driver_2.cpp 
+../src/driver_2.cpp \
+../src/main.cpp 
 
 OBJS += \
 ./src/Calculator.o \
 ./src/Exponential.o \
 ./src/Fraction.o \
 ./src/Integer.o \
-./src/Irrational.o \
 ./src/Log.o \
 ./src/Log_2.o \
 ./src/Project.o \
-./src/driver_2.o 
+./src/driver_2.o \
+./src/main.o 
 
 CPP_DEPS += \
 ./src/Calculator.d \
 ./src/Exponential.d \
 ./src/Fraction.d \
 ./src/Integer.d \
-./src/Irrational.d \
 ./src/Log.d \
 ./src/Log_2.d \
 ./src/Project.d \
-./src/driver_2.d 
+./src/driver_2.d \
+./src/main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

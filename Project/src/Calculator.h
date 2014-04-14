@@ -1,7 +1,6 @@
 
-#ifndef CALULATOR_H
-#define	CALULATOR_H
-#include <iostream>
+#ifndef CALCULATOR_H
+#define CALCULATOR_H
 
 using namespace std;
 
@@ -11,9 +10,9 @@ class Calculator{
     void parenthesisError();
     string parse(string equation);
     string removeSpace(string equation);
-    equateRPN(string RPNeq);
+    //equateRPN(string RPNeq);
     void DisplayMenu();
 };
 
-#endif	/* CALULATOR_H */
+#endif	/* CALCULATOR_H */
 
