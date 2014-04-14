@@ -13,10 +13,21 @@
 using namespace std;
 
 // our Number superclass
-class Number{
+class Number: public Calculator{
 
 public:
-	Number();
+	Number(Calculator* value);
 	virtual ~Number();
+
+	Calculator* getNumber();
+	Calculator* add(Number* n);
+	Calculator* subtract(Number* n);
+	Calculator* multiply(Number* n);
+	Calculator* divide(Number* n);
+
+private:
+	Calculator* value;
+
+
 
 };

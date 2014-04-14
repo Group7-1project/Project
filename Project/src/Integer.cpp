@@ -9,8 +9,8 @@
 
 #include "Integer.h"
 
-Integer::Integer(Number* n){
-	this->n = integer;
+Integer::Integer(Number* integer){
+	this->integer = integer;
 }
 
 Number* Integer::getInt(){
