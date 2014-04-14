@@ -37,9 +37,7 @@ Log::Log(string s) {
 int Log::getBase() {
 	return base;
 }
-int Log::getOperand() {
-	return operand;
-}
+
 /*string Log::getStrLog() {
 	return strLog;
 }*/

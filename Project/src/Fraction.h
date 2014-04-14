@@ -8,24 +8,28 @@
 #ifndef FRACTION_H_
 #define FRACTION_H_
 
-#include "Number.h"
-
 class Fraction: public Number {
 public:
 	//constructor
-	Fraction(Number* numerator, Number* denominator);
+	Fraction();
+	Fraction(Number f);
+	Fraction(string f);
 	~Fraction();
-	Number* getNumerator();
-	Number* getDenominator();
+
 
 
 
 	//methods
+	Number* getNumerator();
+	Number* getDenominator();
+	int gcd(int num, int den);
+	Number* lcd(Number* frac);
 	Number* add(Number* F1);
 	Number* subtract(Number* F1);
 	Number* multiply(Number* F1);
 	Number* divide(Number* F1);
 	Number* simplify();
+	string toString();
 
 private:
 	Number* numerator;
