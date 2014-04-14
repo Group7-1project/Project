@@ -10,6 +10,7 @@
 
 #include "Number.h"
 #include <cmath>
+#include "Integer.h"
 
 class Exponential
 {
@@ -24,7 +25,6 @@ public:
 
 	Number simplify(int base, int power);
 	Number simplify(int base, Fraction power2);
-	Number simplify(Fraction base, Fraction power);
 	Fraction evaluate(int base, int power);
 	//Number evaluate2(int base, Fraction power2);
 	int helpEvaluate(int base, int power);
@@ -39,8 +39,8 @@ private:
 	Fraction power2;
 	Number ans;
 
-	int s = sqrt(base);
-	int c = cbrt(base);
+	int s;
+	int c;
 
 };
 

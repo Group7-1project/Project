@@ -17,6 +17,8 @@ Exponential::Exponential(int base, int power)
 {
 	this->base = base;
 	this->power = power;
+	int s = sqrt(base);
+	int c = cbrt(base);
 }
 
 Exponential::Exponential(int base, Fraction power)
@@ -57,7 +59,7 @@ Number Exponential::simplify(int base, int power)  // All cases covered
 		return (1/(evaluate(base, power)));
 	}
 
-	return Fraction(0);
+	return Fraction(1000000);
 }
 
 Number Exponential::simplify(int base, Fraction power2) // All cases considered

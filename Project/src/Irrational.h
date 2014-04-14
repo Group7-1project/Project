@@ -6,13 +6,22 @@
  */
 
 #include "Number.h"
+#include "Fraction.h"
 
-// This class is just for the irrational constants pi and e.
-class Irrational: public Number {
 
+// This class is just for the irrational constants pi and e....and now, all irrationals xD
+
+class Irrational
+{
 public:
+	Irrational(int base, Fraction power);
+
+
+private:
 	Number pi;
 	Number e;
+	int base;
+	Fraction power;
 
 };
 
