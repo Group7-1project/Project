@@ -19,9 +19,23 @@ Fraction::Fraction(){						//default sets fraction to 0
 	denominator = 1;
 }
 
-Fraction::Fraction(Number f){					//sets fraction if passed Number object
-	numerator = n;
-	denominator = d;
+Fraction::Fraction(Number* numerator, Number* denominator){					//sets fraction if passed Number object
+
+	this->numerator = numerator;
+
+	Integer* i = dynamic_cast<Intger*>(denominator);
+	try{
+	if(i->getInt() == 0){
+		throw invalid_argument("Zero in denominator");
+	}
+
+	else{
+		this->denominator = denominator;
+	}
+	}
+	catch(exception& e){
+		cerr << "ERROR:" <<  e.what;
+	}
 }
 
 Fraction::Fraction(string f){					//sets fraction if passed a string containing fraction
@@ -43,12 +57,12 @@ Fraction::Fraction(string f){					//sets fraction if passed a string containing 
    }
 
    if(denominator == 0 || "0"){
-	   throw invalid_argument("Cannot divide by 0")
+	   throw invalid_argument("Zero in denominator");
    }
    }
 
    catch(exception& e){
-	   cerr << e.what;
+	   cerr << "ERROR:" <<  e.what;
    }
 }
 
