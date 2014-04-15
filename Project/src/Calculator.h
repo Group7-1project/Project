@@ -2,6 +2,9 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
+#include "Number.h"
+
+
 using namespace std;
 
 class Calculator{

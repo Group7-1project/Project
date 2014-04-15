@@ -15,16 +15,16 @@ Exponential::Exponential(int base, int power)
 {
 	this->base = base;
 	this->power = power;
-	int s = sqrt(base);
-	int c = cbrt(base);
+	s = sqrt(base);
+	c = cbrt(base);
 }
 
 Exponential::Exponential(int base, Fraction power)
 {
 this->base = base;
 this->power = power;
-int s = sqrt(base);
-int c = cbrt(base);
+s = sqrt(base);
+c = cbrt(base);
 }
 
 Number Exponential::simplify(int base, int power)  // All cases covered

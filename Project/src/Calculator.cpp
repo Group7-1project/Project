@@ -1,5 +1,5 @@
 
-#include "Number.h"
+#include "Calculator.h"
 
 void Calculator::DisplayMenu(){
     //This will display the menu of the calculator.

@@ -13,7 +13,7 @@
 using namespace std;
 
 // our Number superclass
-class Number: public Calculator{
+class Number{
 
 public:
 	Number(Calculator* value);
